@@ -127,5 +127,5 @@ STATIC_URL = '/static/'
 django_heroku.settings(locals())
 
 CORS_ORIGIN_WHITELIST = (
-    'localhost:3000/'
+    'https://8000-c92bf725-0282-4e90-9d0a-9c30263269cb.ws-us02.gitpod.io',
 )
