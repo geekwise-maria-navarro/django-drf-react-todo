@@ -18,7 +18,7 @@ class Customer(models.Model):
     customer_email = models.EmailField(unique=True, null=False, blank=False)
 
     def __str__(self):
-        return (f"Name: {self.customer_name} | Email: {self.customer_email} | Location: {self.branch.bank_name}")
+        return (f"Name: {self.customer_name} | Email: {self.customer_email} | Location: {self.branch.branch_name}")
 
 class Product(models.Model):
     customer = models.ForeignKey(
