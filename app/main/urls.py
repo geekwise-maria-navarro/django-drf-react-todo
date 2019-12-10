@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from todo import views
+from bank import views as bank_views
 
 
 router = routers.DefaultRouter()
 router.register(r'todos', views.TodoView, 'todo')
-
+router.register(r'branch', bank_views.BranchView, 'branch')
+router.register(r'customer', bank_views.CustomerView, 'customer')
+router.register(r'product', bank_views.ProductView, 'product')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

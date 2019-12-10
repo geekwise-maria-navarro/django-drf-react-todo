@@ -25,9 +25,3 @@ class Product_Serializer(serializers.ModelSerializer):
         fields = (
             'product_options'
         )
-
-
-# class Todo_Serializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Todo
-#         fields = ('id', 'title', 'description', 'completed')
