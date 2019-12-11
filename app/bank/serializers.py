@@ -23,5 +23,5 @@ class Product_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = (
-            'product_options'
+            'product_options',
         )
