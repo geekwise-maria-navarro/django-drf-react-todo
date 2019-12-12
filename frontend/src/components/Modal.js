@@ -36,23 +36,23 @@ export default class CustomModal extends Component {
         <ModalBody>
             <Form>
             <FormGroup>
-                <Label for="title">Title</Label>
+                <Label for="title">Customer Info</Label>
                 <Input
                 type="text"
-                name="title"
+                name="Customer Name"
                 value={this.state.activeItem.title}
                 onChange={this.handleChange}
-                placeholder="Enter Todo Title"
+                placeholder="Customer Name"
                 />
             </FormGroup>
             <FormGroup>
-                <Label for="description">Description</Label>
+                <Label for="description">Bank Name</Label>
                 <Input
                 type="text"
                 name="description"
                 value={this.state.activeItem.description}
                 onChange={this.handleChange}
-                placeholder="Enter Todo description"
+                placeholder="Bank Name"
                 />
             </FormGroup>
             <FormGroup check>
