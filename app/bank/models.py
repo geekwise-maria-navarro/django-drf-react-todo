@@ -38,3 +38,20 @@ class Product(models.Model):
     )
     def __str__(self):
             return (f"Customer Name: {self.customer.customer_name}")
+
+
+
+# class Account(models.Model):
+#     bank_partner = models.ForeignKey(
+#         Branch,
+#         on_delete=models.CASCADE,
+#         related_name='bank_partner',
+#     )
+#     holder = models.OneToOneField(
+#         Customer,
+#         on_delete=models.CASCADE,
+#     )
+#     balance = models.DecimalField(max_digits=300, decimal_places=2)
+
+#     def __str__(self):
+#         return(f"Account Holder: {self.holder} | Balance: {self.balance}")
