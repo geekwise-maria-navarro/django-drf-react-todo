@@ -9,14 +9,17 @@ from .models import Branch, Customer, Product
 # # Register your models here.
 # admin.site.register(Todo, TodoAdmin)
 
-# admin.site.register(Branch)
-admin.site.register(Customer)
+admin.site.register(Branch)
+# admin.site.register(Customer)
 admin.site.register(Product)
 
-class Customer_Inline(admin.StackedInline):
-    model = Customer
-@admin.register(Branch)
-class Branch_Admin(admin.ModelAdmin):
+
+
+class Product_Inline(admin.StackedInline):
+    model = Product
+
+@admin.register(Customer)
+class Customer_Admin(admin.ModelAdmin):
     inlines = [
-        Customer_Inline
+        Product_Inline
     ]
