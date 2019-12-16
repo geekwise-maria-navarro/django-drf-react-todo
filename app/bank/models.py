@@ -37,7 +37,7 @@ class Product(models.Model):
         default = product_options[0]
     )
     def __str__(self):
-            return (f"Customer Name: {self.customer.customer_name}")
+            return (f"Customer Name: {self.customer.customer_name} | Product: {self.product_options}")
 
 
 
