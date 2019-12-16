@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import Todo
+from .models import Bank_App
 
 
-class Todo_Serializer(serializers.ModelSerializer):
+class Bank_Serializer(serializers.ModelSerializer):
     class Meta:
-        model = Todo
-        fields = ('id', 'title', 'description', 'completed')
+        model = Bank_App
+        fields = ('id', 'branch', 'customer', 'product_options')

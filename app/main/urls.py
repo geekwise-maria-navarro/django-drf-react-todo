@@ -21,7 +21,7 @@ from bank import views as bank_views
 
 
 router = routers.DefaultRouter()
-router.register(r'todos', views.TodoView, 'todo')
+router.register(r'todos', views.BankView , 'todo')
 router.register(r'branch', bank_views.BranchView, 'branch')
 router.register(r'customer', bank_views.CustomerView, 'customer')
 router.register(r'product', bank_views.ProductView, 'product')

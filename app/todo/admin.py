@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import Todo
+from .models import Bank_App
 
 
-class TodoAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description', 'completed')
+class BankAdmin(admin.ModelAdmin):
+    list_display = ('branch', 'customer', 'product_options')
 
 
 
 # Register your models here.
-admin.site.register(Todo, TodoAdmin)
+admin.site.register(Bank_App, BankAdmin)

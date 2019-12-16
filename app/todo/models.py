@@ -4,10 +4,10 @@ from django.db import models
 
 # Create your models here.
 
-class Todo(models.Model):
-    title = models.CharField(max_length=120)
-    description = models.TextField()
-    completed = models.BooleanField(default=False)
+class Bank_App(models.Model):
+    branch = models.CharField(max_length=120)
+    customer = models.TextField()
+    product_options = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.title
+        return self.customer
