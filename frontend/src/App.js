@@ -93,17 +93,17 @@ class App extends Component {
     this.toggle();
     if (item.id) {
         axios
-        .put(`https://django-drf-react-todo-2.herokuapp.com/admin/todo/todo/${item.id}/`, item)
+        .put(`https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}/`, item)
         .then(res => this.refreshList());
         return;
     }
     axios
-        .post("https://django-drf-react-todo-2.herokuapp.com/admin/todo/todo/", item)
+        .post("https://django-drf-react-vscode.herokuapp.com/admin/bank/", item)
         .then(res => this.refreshList());
     };
     handleDelete = item => {
     axios
-        .delete(`https://django-drf-react-todo-2.herokuapp.com/admin/todo/todo/${item.id}`)
+        .delete(`https://https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}`)
         .then(res => this.refreshList());
     };
     createItem = () => {
