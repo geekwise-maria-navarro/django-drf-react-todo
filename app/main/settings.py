@@ -128,5 +128,5 @@ STATIC_URL = '/static/'
 django_heroku.settings(locals())
 
 CORS_ORIGIN_WHITELIST = (
-    'https://react-heroku-maria.herokuapp.com',
+    'https://django-drf-react-vscode.herokuapp.com',
 )
