@@ -26,7 +26,7 @@ class App extends Component {
         .then(res => this.setState({ todoList: res.data }))
         .catch(err => console.log(err));
     };
-    displayCompleted = status => {
+    displayCustomer = status => {
     if (status) {
         return this.setState({ viewCompleted: true });
     }
@@ -36,25 +36,25 @@ class App extends Component {
     return (
         <div className="my-5 tab-list">
         <span
-            onClick={() => this.displayCompleted(true)}
+            onClick={() => this.displayCustomer(true)}
             className={this.state.viewCompleted ? "active" : ""}
         >
             Branch
         </span>
         <span
-            onClick={() => this.displayCompleted(false)}
-            className={this.state.viewCompleted ? "" : "active"}
+            onClick={() => this.displayCustomer(false)}
+            className={this.state.viewCompleted ? "" : "active" }
         >
             Customer
         </span>
         <span
-            onClick={() => this.displayCompleted(false)}
+            onClick={() => this.displayCustomer(false)}
             className={this.state.viewCompleted ? "" : "active"}
         >
             Products
         </span>
         <span
-            onClick={() => this.displayCompleted(false)}
+            onClick={() => this.displayCustomer(false)}
             className={this.state.viewCompleted ? "" : "active"} 
         >
             Account
@@ -119,7 +119,7 @@ class App extends Component {
         .then(res => this.refreshList());
     };
     createItem = () => {
-    const item = { title: "", description: "", completed: false };
+    const item = { branch: "", customer: "", product: "" };
     this.setState({ activeItem: item, modal: !this.state.modal });
     };
     editItem = item => {

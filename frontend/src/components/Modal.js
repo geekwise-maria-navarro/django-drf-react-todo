@@ -32,30 +32,40 @@ export default class CustomModal extends Component {
     const { toggle, onSave } = this.props;
     return (
         <Modal isOpen={true} toggle={toggle}>
-        <ModalHeader toggle={toggle}> Todo Item </ModalHeader>
+        <ModalHeader toggle={toggle}> Bank App </ModalHeader>
         <ModalBody>
             <Form>
             <FormGroup>
-                <Label for="title">Customer Info</Label>
+                <Label for="branch">Branch Info</Label>
                 <Input
                 type="text"
-                name="Customer Name"
-                value={this.state.activeItem.title}
+                name="branch"
+                value={this.state.activeItem.branch}
                 onChange={this.handleChange}
-                placeholder="Customer Name"
+                placeholder="Branch Name"
                 />
             </FormGroup>
             <FormGroup>
-                <Label for="description">Bank Name</Label>
+                <Label for="customer"> Customer </Label>
                 <Input
                 type="text"
-                name="description"
-                value={this.state.activeItem.description}
+                name="customer"
+                value={this.state.activeItem.customer}
                 onChange={this.handleChange}
-                placeholder="Bank Name"
+                placeholder="Customer"
                 />
             </FormGroup>
-            <FormGroup check>
+            <FormGroup>
+                <Label for="product"> Product </Label>
+                <Input
+                type="text"
+                name="product"
+                value={this.state.activeItem.product}
+                onChange={this.handleChange}
+                placeholder="Product Options"
+                />
+            </FormGroup>
+            {/* <FormGroup check>
                 <Label for="completed">
                 <Input
                     type="checkbox"
@@ -65,7 +75,7 @@ export default class CustomModal extends Component {
                 />
                 Completed
                 </Label>
-            </FormGroup>
+            </FormGroup> */}
             </Form>
         </ModalBody>
         <ModalFooter>
