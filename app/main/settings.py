@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'main',
     'todo',
-    'bank',
+    # 'bank',
 ]
 
 MIDDLEWARE = [
