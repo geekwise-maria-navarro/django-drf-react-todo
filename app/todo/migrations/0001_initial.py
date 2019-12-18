@@ -15,8 +15,8 @@ class Migration(migrations.Migration):
             name='Todo',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=120)),
-                ('description', models.TextField()),
+                ('customer', models.CharField(max_length=120)),
+                ('branch', models.CharField(max_length=120)),
                 ('completed', models.BooleanField(default=False)),
             ],
         ),

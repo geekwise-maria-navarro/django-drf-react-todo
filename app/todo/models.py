@@ -6,8 +6,9 @@ from django.db import models
 
 class Bank_App(models.Model):
     branch = models.CharField(max_length=120)
-    customer = models.TextField()
-    product_options = models.BooleanField(default=False)
+    customer = models.CharField(max_length=120)
+    product_options = models.CharField(max_length=120)
+    # completed = models.BooleanField(default=False)
 
     def __str__(self):
         return self.customer
