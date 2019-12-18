@@ -5,4 +5,3 @@ env/
 venv/
 .theia
 .theia/
-node_modules
