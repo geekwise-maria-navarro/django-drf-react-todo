@@ -56,11 +56,11 @@ export default class CustomModal extends Component {
                 />
             </FormGroup>
             <FormGroup>
-                <Label for="product"> Product </Label>
+                <Label for="product_options"> Product </Label>
                 <Input
                 type="text"
-                name="product"
-                value={this.state.activeItem.product}
+                name="product_options"
+                value={this.state.activeItem.product_options}
                 onChange={this.handleChange}
                 placeholder="Product Options"
                 />

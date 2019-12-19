@@ -8,11 +8,11 @@ class App extends Component {
     constructor(props) {
     super(props);
     this.state = {
-        viewCompleted: false,
+        viewCompleted: true,
         activeItem: {
-        title: "",
-        description: "",
-        completed: false
+        branch: "",
+        customer: "",
+        product_options: ""
         },
         todoList: []
     };
@@ -22,7 +22,8 @@ class App extends Component {
     }
     refreshList = () => {
     axios
-        .get("https://django-drf-react-todo-2.herokuapp.com/admin/todo/todo/")
+        // .get("https://django-drf-react-todo-2.herokuapp.com/admin/todo/todo/")
+        .get("http://127.0.0.1:8000/api/todos/")
         .then(res => this.setState({ todoList: res.data }))
         .catch(err => console.log(err));
     };
@@ -64,9 +65,10 @@ class App extends Component {
     };
     renderItems = () => {
     const { viewCompleted } = this.state;
-    const newItems = this.state.todoList.filter(
-        item => item.completed === viewCompleted
-    );
+    const newItems = this.state.todoList;
+    // const newItems = this.state.todoList.filter(
+    //     item => item.completed === viewCompleted
+    // );
     return newItems.map(item => (
         <li
         key={item.id}
@@ -74,11 +76,11 @@ class App extends Component {
         >
         <span
             className={`todo-title mr-2 ${
-            this.state.viewCompleted ? "completed-todo" : ""
+            this.state.viewCompleted ? "completed-todoac" : ""
             }`}
-            title={item.description}
+            title={item.branch}
         >
-            {item.title}
+            {item.branch}
         </span>
         <span>
             <button
@@ -105,21 +107,24 @@ class App extends Component {
     this.toggle();
     if (item.id) {
         axios
-        .put(`https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}/`, item)
+        .put(`http://127.0.0.1:8000/api/todos/${item.id}/`, item)
+        // .put(`https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}/`, item)
         .then(res => this.refreshList());
         return;
     }
     axios
-        .post("https://django-drf-react-vscode.herokuapp.com/admin/bank/", item)
+        .post("http://127.0.0.1:8000/api/todos/", item)
+        // .post("https://django-drf-react-vscode.herokuapp.com/admin/bank/", item)
         .then(res => this.refreshList());
     };
     handleDelete = item => {
     axios
-        .delete(`https://https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}`)
+        .delete(`http://127.0.0.1:8000/api/todos/${item.id}`)
+        // .delete(`https://https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}`)
         .then(res => this.refreshList());
     };
     createItem = () => {
-    const item = { branch: "", customer: "", product: "" };
+    const item = { branch: "", customer: "", product_options: "" };
     this.setState({ activeItem: item, modal: !this.state.modal });
     };
     editItem = item => {
