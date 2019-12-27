@@ -18,7 +18,6 @@ class App extends Component {
     };
     }
     componentDidMount() {
-        console.log("testing ssh key")
     this.refreshList();
     }
     refreshList = () => {
