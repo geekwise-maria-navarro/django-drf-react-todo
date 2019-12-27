@@ -22,7 +22,7 @@ class App extends Component {
     }
     refreshList = () => {
     axios
-        .get("https://maria-staging-backend.herokuapp.com/api/todos/")
+        .get("http://127.0.0.1:8000/api/todos/")
         .then(res => this.setState({ todoList: res.data }))
         .catch(err => console.log(err));
     };
@@ -106,19 +106,19 @@ class App extends Component {
     this.toggle();
     if (item.id) {
         axios
-        .put(`https://maria-staging-backend.herokuapp.com/api/todos/${item.id}/`, item)
+        .put(`http://127.0.0.1:8000/api/todos/${item.id}/`, item)
         // .put(`https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}/`, item)
         .then(res => this.refreshList());
         return;
     }
     axios
-        .post("https://maria-staging-backend.herokuapp.com/api/todos/", item)
+        .post("http://127.0.0.1:8000/api/todos/", item)
         // .post("https://django-drf-react-vscode.herokuapp.com/admin/bank/", item)
         .then(res => this.refreshList());
     };
     handleDelete = item => {
     axios
-        .delete(`https://maria-staging-backend.herokuapp.com/api/todos/${item.id}`)
+        .delete(`http://127.0.0.1:8000/api/todos/${item.id}`)
         // .delete(`https://https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}`)
         .then(res => this.refreshList());
     };
