@@ -5,3 +5,10 @@ env/
 venv/
 .theia
 .theia/
+*.pyc
+__pycache__/
+venv
+venv/bin/__pycache__/
+app/*/__pycache__
+app/*/*/__pycache__
+node_modules
