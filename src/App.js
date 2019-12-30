@@ -22,7 +22,7 @@ class App extends Component {
     }
     refreshList = () => {
     axios
-        .get("https://maria-staging-backend.herokuapp.com/api/todos/")
+        .get("http://maria-staging-backend.herokuapp.com/todo/bank_app/")
         .then(res => this.setState({ todoList: res.data }))
         .catch(err => console.log(err));
     };
@@ -106,17 +106,17 @@ class App extends Component {
     this.toggle();
     if (item.id) {
         axios
-        .put(`https://maria-staging-backend.herokuapp.com/api/todos/${item.id}/`, item)
+        .put(`http://maria-staging-backend.herokuapp.com/todo/bank_app/${item.id}/`, item)
         .then(res => this.refreshList());
         return;
     }
     axios
-        .post("https://maria-staging-backend.herokuapp.com/api/todos/", item)
+        .post("http://maria-staging-backend.herokuapp.com/todo/bank_app/", item)
         .then(res => this.refreshList());
     };
     handleDelete = item => {
     axios
-        .delete(`https://maria-staging-backend.herokuapp.com/api/todos/${item.id}`)
+        .delete(`http://maria-staging-backend.herokuapp.com/todo/bank_app/${item.id}`)
         .then(res => this.refreshList());
     };
     createItem = () => {
