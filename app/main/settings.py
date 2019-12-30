@@ -127,7 +127,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 django_heroku.settings(locals())
 
-CORS_AllOW_ALL = True
-# (
-#     'https://maria-staging-frontend.herokuapp.com',
-# )
+CORS_ORIGIN_WHITELIST = (
+    'https://maria-staging-frontend.herokuapp.com',
+)
