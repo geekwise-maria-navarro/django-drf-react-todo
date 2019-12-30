@@ -19,6 +19,7 @@ class App extends Component {
     }
     componentDidMount() {
     this.refreshList();
+    console.log(this.state.todoList)
     }
     refreshList = () => {
     axios
