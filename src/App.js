@@ -22,7 +22,7 @@ class App extends Component {
     }
     refreshList = () => {
     axios
-        .get("https://maria-staging-backend.herokuapp.com/api/")
+        .get("https://maria-staging-backend.herokuapp.com/api/todos/")
         .then(res => this.setState({ todoList: res.data }))
         .catch(err => console.log(err));
     };
