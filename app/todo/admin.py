@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Bank_App
+from .models import Branch
 
 
 class BankAdmin(admin.ModelAdmin):
@@ -8,4 +8,4 @@ class BankAdmin(admin.ModelAdmin):
 
 
 # Register your models here.
-admin.site.register(Bank_App, BankAdmin)
+admin.site.register(Branch, BankAdmin)
