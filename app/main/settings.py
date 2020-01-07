@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'knox',
     'main',
     'todo',
     # 'bank',
@@ -127,6 +128,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 django_heroku.settings(locals())
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+}
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
     # 'https://django-drf-react-vscode.herokuapp.com',
