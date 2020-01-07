@@ -11,7 +11,7 @@ class App extends Component {
         viewCompleted: true,
         activeItem: {
         branch: "",
-        customer: "",
+        address: "",
         product_options: ""
         },
         todoList: []
@@ -124,7 +124,7 @@ class App extends Component {
         .then(res => this.refreshList());
     };
     createItem = () => {
-    const item = { branch: "", customer: "", product_options: "" };
+    const item = { branch: "", address: "", product_options: "" };
     this.setState({ activeItem: item, modal: !this.state.modal });
     };
     editItem = item => {
