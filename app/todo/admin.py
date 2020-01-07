@@ -3,7 +3,7 @@ from .models import BranchApp
 
 
 class BankAdmin(admin.ModelAdmin):
-    list_display = ('branch', 'customer', 'product_options')
+    list_display = ('branch', 'address', 'product_options')
 
 
 

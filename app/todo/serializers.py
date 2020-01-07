@@ -5,4 +5,4 @@ from .models import BranchApp
 class Bank_Serializer(serializers.ModelSerializer):
     class Meta:
         model = BranchApp
-        fields = ('id', 'branch', 'customer', 'product_options')
+        fields = ('id', 'branch', 'address', 'product_options')
