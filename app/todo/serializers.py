@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import Bank_App
+from .models import BranchApp
 
 
 class Bank_Serializer(serializers.ModelSerializer):
     class Meta:
-        model = Bank_App
+        model = BranchApp
         fields = ('id', 'branch', 'customer', 'product_options')
