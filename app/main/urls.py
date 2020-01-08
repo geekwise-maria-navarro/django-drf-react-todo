@@ -28,6 +28,7 @@ router.register(r'todos', views.BankView , 'todo')
 # router.register(r'product', bank_views.ProductView, 'product')
 
 urlpatterns = [
+    path('users/', include('account.urls')),
     path('', admin.site.urls),
     path('admin/', admin.site.urls),
     path('login/', admin.site.urls),
