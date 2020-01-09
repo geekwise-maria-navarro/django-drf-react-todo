@@ -21,7 +21,7 @@ from todo import views
 
 
 router = routers.DefaultRouter()
-router.register(r'todos', views.BankView , 'todo')
+router.register(r'branch', views.BankView , 'branch')
 
 # router.register(r'branch', bank_views.BranchView, 'branch')
 # router.register(r'customer', bank_views.CustomerView, 'customer')
