@@ -5,19 +5,20 @@ from django.contrib.auth import authenticate
 class PermissionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Permission
-        fields = '__all__'
+        fields = ('name',)
+        # fields = '__all__'
 
 # User Serializer
 class UserSerializer(serializers.ModelSerializer):
-    user_permissions = PermissionSerializer(many=True)
+    groups = PermissionSerializer(many=True)
 
     class Meta:
         model = User
-        fields = '__all__'
-        # fields = ('id', 'username', 'email')
+        # fields = '__all__'
+        fields = ('id', 'username', 'email', 'groups')
         
         def created(self, validated_data):
-            permissions_data = validated_data.pop('user_permissions')
+            permissions_data = validated_data.pop('groups')
             user = User.objects.create(**validated_data)
             for permission_data in permissions_data:
                 Permission.objects.create(user=user, **permissions_data)
