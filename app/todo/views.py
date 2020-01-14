@@ -8,4 +8,5 @@ from .models import BranchApp
 class BankView(viewsets.ModelViewSet):
     serializer_class = Bank_Serializer
     queryset = BranchApp.objects.all()
-    
+
+
