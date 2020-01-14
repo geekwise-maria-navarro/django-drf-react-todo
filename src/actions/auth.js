@@ -28,7 +28,7 @@ export const loadUser = () => (dispatch, getState) => {
         config.headers['Authorization'] = `Token ${token}`;
     }
     axios
-      .get('http://127.0.0.1:8000/users/api/auth/user', config)
+      .get('https://maria-demo-backend.herokuapp.com/users/api/auth/user', config)
       .then(res => {
           dispatch({
             type: USER_LOADED,
