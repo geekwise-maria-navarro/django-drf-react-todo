@@ -16,12 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from todo import views
-# from bank import views as bank_views
+# from todo import views
+from todo import views as bank_views
 
 
 router = routers.DefaultRouter()
-router.register(r'branch', views.BankView , 'branch')
+router.register(r'branch', bank_views.BankView , 'branch')
+router.register(r'customer', bank_views.CustomerView, 'customer')
+router.register(r'account', bank_views.AccountView, 'account')
 
 # router.register(r'branch', bank_views.BranchView, 'branch')
 # router.register(r'customer', bank_views.CustomerView, 'customer')
