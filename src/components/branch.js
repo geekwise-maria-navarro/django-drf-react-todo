@@ -24,7 +24,7 @@ class branch extends Component {
     refreshList = () => {
     axios
         // .get("https://django-drf-react-todo-2.herokuapp.com/admin/todo/todo/")
-        .get("http://127.0.0.1:8000/api/branch/")
+        .get("https://maria-demo-backend.herokuapp.com/api/branch/")
         .then(res => this.setState({ todoList: res.data }))
         .catch(err => console.log(err));
     };
@@ -108,19 +108,19 @@ class branch extends Component {
     this.toggle();
     if (item.id) {
         axios
-        .put(`http://127.0.0.1:8000/api/branch/${item.id}/`, item)
+        .put(`https://maria-demo-backend.herokuapp.com/api/branch/${item.id}/`, item)
         // .put(`https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}/`, item)
         .then(res => this.refreshList());
         return;
     }
     axios
-        .post("http://127.0.0.1:8000/api/branch/", item)
+        .post("https://maria-demo-backend.herokuapp.com/api/branch/", item)
         // .post("https://django-drf-react-vscode.herokuapp.com/admin/bank/", item)
         .then(res => this.refreshList());
     };
     handleDelete = item => {
     axios
-        .delete(`http://127.0.0.1:8000/api/branch/${item.id}`)
+        .delete(`https://maria-demo-backend.herokuapp.com/api/branch/${item.id}`)
         // .delete(`https://https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}`)
         .then(res => this.refreshList());
     };
