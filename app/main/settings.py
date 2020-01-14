@@ -135,5 +135,4 @@ django_heroku.settings(locals())
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
-    # 'https://django-drf-react-vscode.herokuapp.com',
 )
