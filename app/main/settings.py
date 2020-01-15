@@ -134,5 +134,5 @@ STATIC_URL = '/static/'
 django_heroku.settings(locals())
 
 CORS_ORIGIN_WHITELIST = (
-    'https://maria-demo-frontend.herokuapp.com',
+    'http://localhost:3000',
 )

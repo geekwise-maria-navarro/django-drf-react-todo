@@ -1,18 +1,20 @@
+// frontend/src/App.js
+
 import React, { Component } from "react";
-import Modal from "./Modal";
+import CustomModal from "./ModalAccount";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-class Branch extends Component {
+class Account extends Component {
     constructor(props) {
     super(props);
     this.state = {
         viewCompleted: true,
         activeItem: {
-        branch: "",
-        address: ""
+        account_options: "",
+        account_owner: ""
         },
-        branchList: []
+        accountList: []
     };
     }
     componentDidMount() {
@@ -21,56 +23,15 @@ class Branch extends Component {
     refreshList = () => {
     axios
         // .get("https://django-drf-react-todo-2.herokuapp.com/admin/todo/todo/")
-        .get("http://127.0.0.1:8000/api/branch/")
-        .then(res => this.setState({ branchList: res.data }))
+        .get("http://127.0.0.1:8000/api/account/")
+        .then(res => this.setState({ accountList: res.data }))
         .catch(err => console.log(err));
     };
-    // displayBranch = status => {
-    //     if (status) {
-    //         return this.setState({ viewCompleted: true });
-    //     }
-    //     return this.setState({ viewCompleted: false });
-    // };
-    // displayCustomer = status => {
-    //     if (status) {
-    //         return this.setState({ viewCompleted: true });
-    //     }
-    //     return this.setState({ viewCompleted: false });
-    // };
-    // displayAccount = status => {
-    //     if (status) {
-    //         return this.setState({ viewCompleted: true });
-    //     }
-    //     return this.setState({ viewCompleted: false });
-    // };
-    // renderTabList = () => {
-    // return (
-    //     <div className="my-5 tab-list">
-    //     <span
-    //         onClick={() => this.displayBranch(true)}
-    //         className={this.state.viewCompleted ? "active" : ""}
-    //     >
-    //         Branch
-    //     </span>
-    //     <span
-    //         onClick={() => this.displayCustomer(false)}
-    //         className={this.state.viewCompleted ? "" : "active" }
-    //     >
-    //         Customer
-    //     </span>
-    //     <span
-    //         onClick={() => this.displayAccount(false)}
-    //         className={this.state.viewCompleted ? "" : "active"} 
-    //     >
-    //         Account
-    //     </span>
-    //     </div>
-    // );
-    // };
+  
     renderItems = () => {
     const { viewCompleted } = this.state;
-    const newItems = this.state.branchList;
-    // const newItems = this.state.branchList.filter(
+    const newItems = this.state.accountList;
+    // const newItems = this.state.accountList.filter(
     //     item => item.completed === viewCompleted
     // );
     return newItems.map(item => (
@@ -82,9 +43,9 @@ class Branch extends Component {
             className={`todo-title mr-2 ${
             this.state.viewCompleted ? "completed-todoac" : ""
             }`}
-            title={item.branch}
+            title={item.account_options}
         >
-            {item.branch}
+        {item.account_owner} | {item.account_options}
         </span>
         <span>
             <button
@@ -111,24 +72,24 @@ class Branch extends Component {
     this.toggle();
     if (item.id) {
         axios
-        .put(`http://127.0.0.1:8000/api/branch/${item.id}/`, item)
+        .put(`http://127.0.0.1:8000/api/account/${item.id}/`, item)
         // .put(`https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}/`, item)
         .then(res => this.refreshList());
         return;
     }
     axios
-        .post("http://127.0.0.1:8000/api/branch/", item)
+        .post("http://127.0.0.1:8000/api/account/", item)
         // .post("https://django-drf-react-vscode.herokuapp.com/admin/bank/", item)
         .then(res => this.refreshList());
     };
     handleDelete = item => {
     axios
-        .delete(`http://127.0.0.1:8000/api/branch/${item.id}`)
+        .delete(`http://127.0.0.1:8000/api/account/${item.id}`)
         // .delete(`https://https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}`)
         .then(res => this.refreshList());
     };
     createItem = () => {
-    const item = { branch: "", address: "" };
+    const item = { account_options: "", account_owner: "" };
     this.setState({ activeItem: item, modal: !this.state.modal });
     };
     editItem = item => {
@@ -137,13 +98,13 @@ class Branch extends Component {
     render() {
     return (
         <main className="content">
-        <h1 className="text-white text-uppercase text-center my-4">Branch Information</h1>
+        <h1 className="text-white text-uppercase text-center my-4">Account Information</h1>
         <div className="row ">
             <div className="col-md-6 col-sm-10 mx-auto p-0">
             <div className="card p-3">
                 <div className="">
                 <button onClick={this.createItem} className="btn btn-primary">
-                    Enter Info
+                    Account Info
                 </button>
                 </div>
                 {/* {this.renderTabList()} */}
@@ -154,7 +115,7 @@ class Branch extends Component {
             </div>
         </div>
         {this.state.modal ? (
-            <Modal
+            <CustomModal
             activeItem={this.state.activeItem}
             toggle={this.toggle}
             onSave={this.handleSubmit}
@@ -164,4 +125,4 @@ class Branch extends Component {
     );
     }
 }
-export default Branch;
+export default Account;

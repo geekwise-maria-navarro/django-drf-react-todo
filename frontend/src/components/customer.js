@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import Modal from "./Modal";
+import Modal from "./ModalCustomer";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-class Branch extends Component {
+class Customer extends Component {
     constructor(props) {
     super(props);
     this.state = {
         viewCompleted: true,
         activeItem: {
-        branch: "",
-        address: ""
+        customer_name: "",
+        customer_email: ""
         },
-        branchList: []
+        customerList: []
     };
     }
     componentDidMount() {
@@ -21,8 +21,8 @@ class Branch extends Component {
     refreshList = () => {
     axios
         // .get("https://django-drf-react-todo-2.herokuapp.com/admin/todo/todo/")
-        .get("http://127.0.0.1:8000/api/branch/")
-        .then(res => this.setState({ branchList: res.data }))
+        .get("http://127.0.0.1:8000/api/customer/")
+        .then(res => this.setState({ customerList: res.data }))
         .catch(err => console.log(err));
     };
     // displayBranch = status => {
@@ -68,11 +68,12 @@ class Branch extends Component {
     // );
     // };
     renderItems = () => {
-    const { viewCompleted } = this.state;
-    const newItems = this.state.branchList;
-    // const newItems = this.state.branchList.filter(
+    // const { viewCompleted } = this.state;
+    const newItems = this.state.customerList;
+    // const newItems = this.state.customerList.filter(
     //     item => item.completed === viewCompleted
     // );
+    console.log(newItems);
     return newItems.map(item => (
         <li
         key={item.id}
@@ -82,9 +83,9 @@ class Branch extends Component {
             className={`todo-title mr-2 ${
             this.state.viewCompleted ? "completed-todoac" : ""
             }`}
-            title={item.branch}
+            title={item.customer_name}
         >
-            {item.branch}
+            {item.customer_name}
         </span>
         <span>
             <button
@@ -111,24 +112,24 @@ class Branch extends Component {
     this.toggle();
     if (item.id) {
         axios
-        .put(`http://127.0.0.1:8000/api/branch/${item.id}/`, item)
+        .put(`http://127.0.0.1:8000/api/customer/${item.id}/`, item)
         // .put(`https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}/`, item)
         .then(res => this.refreshList());
         return;
     }
     axios
-        .post("http://127.0.0.1:8000/api/branch/", item)
+        .post("http://127.0.0.1:8000/api/customer/", item)
         // .post("https://django-drf-react-vscode.herokuapp.com/admin/bank/", item)
         .then(res => this.refreshList());
     };
     handleDelete = item => {
     axios
-        .delete(`http://127.0.0.1:8000/api/branch/${item.id}`)
+        .delete(`http://127.0.0.1:8000/api/customer/${item.id}`)
         // .delete(`https://https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}`)
         .then(res => this.refreshList());
     };
     createItem = () => {
-    const item = { branch: "", address: "" };
+    const item = { customer_name: "", customer_email: "" };
     this.setState({ activeItem: item, modal: !this.state.modal });
     };
     editItem = item => {
@@ -137,13 +138,13 @@ class Branch extends Component {
     render() {
     return (
         <main className="content">
-        <h1 className="text-white text-uppercase text-center my-4">Branch Information</h1>
+        <h1 className="text-white text-uppercase text-center my-4"> Customer Information </h1>
         <div className="row ">
             <div className="col-md-6 col-sm-10 mx-auto p-0">
             <div className="card p-3">
                 <div className="">
                 <button onClick={this.createItem} className="btn btn-primary">
-                    Enter Info
+                    Enter
                 </button>
                 </div>
                 {/* {this.renderTabList()} */}
@@ -164,4 +165,4 @@ class Branch extends Component {
     );
     }
 }
-export default Branch;
+export default Customer;

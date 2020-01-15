@@ -1,5 +1,3 @@
-// frontend/src/components/Modal.js
-
 import React, { Component } from "react";
 import {
     Button,
@@ -32,37 +30,27 @@ export default class CustomModal extends Component {
     const { toggle, onSave } = this.props;
     return (
         <Modal isOpen={true} toggle={toggle}>
-        <ModalHeader toggle={toggle}> Bank App </ModalHeader>
+        <ModalHeader toggle={toggle}> Account </ModalHeader>
         <ModalBody>
             <Form>
             <FormGroup>
-                <Label for="branch">Branch Info</Label>
+                <Label for="account_options">Account Info</Label>
                 <Input
                 type="text"
-                name="branch"
-                value={this.state.activeItem.branch}
+                name="account_options"
+                value={this.state.activeItem.account_options}
                 onChange={this.handleChange}
-                placeholder="Branch Name"
+                placeholder="Account Options"
                 />
             </FormGroup>
             <FormGroup>
-                <Label for="address"> address </Label>
+                <Label for="account_owner"> Account Owner </Label>
                 <Input
                 type="text"
-                name="address"
-                value={this.state.activeItem.address}
+                name="account_owner"
+                value={this.state.activeItem.account_owner}
                 onChange={this.handleChange}
-                placeholder="address"
-                />
-            </FormGroup>
-            <FormGroup>
-                <Label for="product_options"> Product </Label>
-                <Input
-                type="text"
-                name="product_options"
-                value={this.state.activeItem.product_options}
-                onChange={this.handleChange}
-                placeholder="Product Options"
+                placeholder="Account Owner"
                 />
             </FormGroup>
             </Form>

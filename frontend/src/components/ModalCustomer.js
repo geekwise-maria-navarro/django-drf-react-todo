@@ -32,30 +32,30 @@ export default class CustomModal extends Component {
     const { toggle, onSave } = this.props;
     return (
         <Modal isOpen={true} toggle={toggle}>
-        <ModalHeader toggle={toggle}> Bank App </ModalHeader>
+        <ModalHeader toggle={toggle}> Customer Information </ModalHeader>
         <ModalBody>
             <Form>
             <FormGroup>
-                <Label for="branch">Branch Info</Label>
+                <Label for="customer_name">Customer Name</Label>
                 <Input
                 type="text"
-                name="branch"
-                value={this.state.activeItem.branch}
+                name="customer_name"
+                value={this.state.activeItem.customer_name}
                 onChange={this.handleChange}
-                placeholder="Branch Name"
+                placeholder="Full Name"
                 />
             </FormGroup>
             <FormGroup>
-                <Label for="address"> address </Label>
+                <Label for="customer_email"> Customer Email </Label>
                 <Input
                 type="text"
-                name="address"
-                value={this.state.activeItem.address}
+                name="customer_email"
+                value={this.state.activeItem.customer_email}
                 onChange={this.handleChange}
-                placeholder="address"
+                placeholder="customer_email"
                 />
             </FormGroup>
-            <FormGroup>
+            {/* <FormGroup>
                 <Label for="product_options"> Product </Label>
                 <Input
                 type="text"
@@ -64,7 +64,7 @@ export default class CustomModal extends Component {
                 onChange={this.handleChange}
                 placeholder="Product Options"
                 />
-            </FormGroup>
+            </FormGroup> */}
             </Form>
         </ModalBody>
         <ModalFooter>
