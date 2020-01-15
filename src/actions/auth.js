@@ -36,7 +36,7 @@ export const loadUser = () => (dispatch, getState) => {
           });
       })
       .catch(err => {
-          dispatch(returnErrors(err.response.data, err.response.status));
+        //   dispatch(returnErrors(err.response.data, err.response.status));
           dispatch({
               type: AUTH_ERROR
           });
@@ -61,7 +61,7 @@ export const login = (username, password) => dispatch => {
           });
       })
       .catch(err => {
-          dispatch(returnErrors(err.response.data, err.response.status));
+        //   dispatch(returnErrors(err.response.data, err.response.status));
           dispatch({
               type: LOGIN_FAIL
           });
@@ -88,7 +88,7 @@ export const register = ({ username, email, password }) => dispatch => {
           alert("You have successfully registered an account. Please login.");
       })
       .catch(err => {
-          dispatch(returnErrors(err.response.data, err.response.status));
+        //   dispatch(returnErrors(err.response.data, err.response.status));
           dispatch({
               type: REGISTER_FAIL
           });
@@ -116,7 +116,7 @@ export const logout = () => (dispatch, getState) => {
             type: LOGOUT_SUCCESS,
           });
       })
-      .catch(err => {
-          dispatch(returnErrors(err.response.data, err.response.status));
-      });
+    //   .catch(err => {
+    //       dispatch(returnErrors(err.response.data, err.response.status));
+    //   });
 };
