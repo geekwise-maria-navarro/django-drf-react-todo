@@ -20,59 +20,13 @@ class Branch extends Component {
     }
     refreshList = () => {
     axios
-        // .get("https://django-drf-react-todo-2.herokuapp.com/admin/todo/todo/")
         .get("http://127.0.0.1:8000/api/branch/")
         .then(res => this.setState({ branchList: res.data }))
         .catch(err => console.log(err));
     };
-    // displayBranch = status => {
-    //     if (status) {
-    //         return this.setState({ viewCompleted: true });
-    //     }
-    //     return this.setState({ viewCompleted: false });
-    // };
-    // displayCustomer = status => {
-    //     if (status) {
-    //         return this.setState({ viewCompleted: true });
-    //     }
-    //     return this.setState({ viewCompleted: false });
-    // };
-    // displayAccount = status => {
-    //     if (status) {
-    //         return this.setState({ viewCompleted: true });
-    //     }
-    //     return this.setState({ viewCompleted: false });
-    // };
-    // renderTabList = () => {
-    // return (
-    //     <div className="my-5 tab-list">
-    //     <span
-    //         onClick={() => this.displayBranch(true)}
-    //         className={this.state.viewCompleted ? "active" : ""}
-    //     >
-    //         Branch
-    //     </span>
-    //     <span
-    //         onClick={() => this.displayCustomer(false)}
-    //         className={this.state.viewCompleted ? "" : "active" }
-    //     >
-    //         Customer
-    //     </span>
-    //     <span
-    //         onClick={() => this.displayAccount(false)}
-    //         className={this.state.viewCompleted ? "" : "active"} 
-    //     >
-    //         Account
-    //     </span>
-    //     </div>
-    // );
-    // };
     renderItems = () => {
     const { viewCompleted } = this.state;
     const newItems = this.state.branchList;
-    // const newItems = this.state.branchList.filter(
-    //     item => item.completed === viewCompleted
-    // );
     return newItems.map(item => (
         <li
         key={item.id}
@@ -112,19 +66,16 @@ class Branch extends Component {
     if (item.id) {
         axios
         .put(`http://127.0.0.1:8000/api/branch/${item.id}/`, item)
-        // .put(`https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}/`, item)
         .then(res => this.refreshList());
         return;
     }
     axios
         .post("http://127.0.0.1:8000/api/branch/", item)
-        // .post("https://django-drf-react-vscode.herokuapp.com/admin/bank/", item)
         .then(res => this.refreshList());
     };
     handleDelete = item => {
     axios
         .delete(`http://127.0.0.1:8000/api/branch/${item.id}`)
-        // .delete(`https://https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}`)
         .then(res => this.refreshList());
     };
     createItem = () => {
@@ -146,7 +97,6 @@ class Branch extends Component {
                     Enter Info
                 </button>
                 </div>
-                {/* {this.renderTabList()} */}
                 <ul className="list-group list-group-flush">
                 {this.renderItems()}
                 </ul>

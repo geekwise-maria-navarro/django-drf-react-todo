@@ -1,5 +1,3 @@
-// frontend/src/components/Modal.js
-
 import React, { Component } from "react";
 import {
     Button,
@@ -55,16 +53,6 @@ export default class CustomModal extends Component {
                 placeholder="customer_email"
                 />
             </FormGroup>
-            {/* <FormGroup>
-                <Label for="product_options"> Product </Label>
-                <Input
-                type="text"
-                name="product_options"
-                value={this.state.activeItem.product_options}
-                onChange={this.handleChange}
-                placeholder="Product Options"
-                />
-            </FormGroup> */}
             </Form>
         </ModalBody>
         <ModalFooter>

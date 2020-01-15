@@ -22,7 +22,6 @@ class Account extends Component {
     }
     refreshList = () => {
     axios
-        // .get("https://django-drf-react-todo-2.herokuapp.com/admin/todo/todo/")
         .get("http://127.0.0.1:8000/api/account/")
         .then(res => this.setState({ accountList: res.data }))
         .catch(err => console.log(err));
@@ -31,9 +30,6 @@ class Account extends Component {
     renderItems = () => {
     const { viewCompleted } = this.state;
     const newItems = this.state.accountList;
-    // const newItems = this.state.accountList.filter(
-    //     item => item.completed === viewCompleted
-    // );
     return newItems.map(item => (
         <li
         key={item.id}
@@ -73,19 +69,16 @@ class Account extends Component {
     if (item.id) {
         axios
         .put(`http://127.0.0.1:8000/api/account/${item.id}/`, item)
-        // .put(`https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}/`, item)
         .then(res => this.refreshList());
         return;
     }
     axios
         .post("http://127.0.0.1:8000/api/account/", item)
-        // .post("https://django-drf-react-vscode.herokuapp.com/admin/bank/", item)
         .then(res => this.refreshList());
     };
     handleDelete = item => {
     axios
         .delete(`http://127.0.0.1:8000/api/account/${item.id}`)
-        // .delete(`https://https://django-drf-react-vscode.herokuapp.com/admin/bank/${item.id}`)
         .then(res => this.refreshList());
     };
     createItem = () => {
@@ -107,7 +100,6 @@ class Account extends Component {
                     Account Info
                 </button>
                 </div>
-                {/* {this.renderTabList()} */}
                 <ul className="list-group list-group-flush">
                 {this.renderItems()}
                 </ul>

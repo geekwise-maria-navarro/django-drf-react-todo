@@ -16,11 +16,6 @@ export class Login extends Component {
 onSubmit = e => {
         e.preventDefault();
         this.props.login(this.state.username, this.state.password);
-        // axios
-        //     .post("http://127.0.0.1:8000/users/api/auth/login", this.state.activeItem)
-        //     .then(res => console.log(res.data))
-        //     .catch(err => console.log(err));
-        // console.log("submit");
     };
     onChange = e => {
         this.setState({ [e.target.name]: e.target.value });
@@ -30,7 +25,6 @@ onSubmit = e => {
         return <Redirect to="/"/>
         }
     const { username, password } = this.state;
-        // const { username, password } = this.state;
         return (
             <div className="col-md-6 m-auto">
               <div className="card card-body mt-5">
