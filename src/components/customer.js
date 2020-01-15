@@ -20,7 +20,7 @@ class Customer extends Component {
     }
     refreshList = () => {
     axios
-        .get("http://127.0.0.1:8000/api/customer/")
+        .get("https://maria-staging-backend.herokuapp.com/api/customer/")
         .then(res => this.setState({ customerList: res.data }))
         .catch(err => console.log(err));
     };
@@ -65,17 +65,17 @@ class Customer extends Component {
     this.toggle();
     if (item.id) {
         axios
-        .put(`http://127.0.0.1:8000/api/customer/${item.id}/`, item)
+        .put(`https://maria-staging-backend.herokuapp.com/api/customer/${item.id}/`, item)
         .then(res => this.refreshList());
         return;
     }
     axios
-        .post("http://127.0.0.1:8000/api/customer/", item)
+        .post("https://maria-staging-backend.herokuapp.com/api/customer/", item)
         .then(res => this.refreshList());
     };
     handleDelete = item => {
     axios
-        .delete(`http://127.0.0.1:8000/api/customer/${item.id}`)
+        .delete(`https://maria-staging-backend.herokuapp.com/api/customer/${item.id}`)
         .then(res => this.refreshList());
     };
     createItem = () => {
