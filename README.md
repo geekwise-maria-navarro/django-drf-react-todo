@@ -5,7 +5,7 @@ Bank project using Django and React deployed via Heroku
 
 [Frontend](https://maria-staging-frontend.herokuapp.com/login)
 
-User's for login/authentication
+Users for login/authentication
 
 user: admin
 
