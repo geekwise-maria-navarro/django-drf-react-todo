@@ -29,9 +29,9 @@ class App extends Component {
                     <PrivateRoute exact path="/" component={Branch}/>
                     <Route exact path="/login" component={Login}/>
                     <Route exact path="/register" component={Register}/>
-                    <Route exact path="/branch" component={Branch}/>
-                    <Route exact path="/customer" component={Customer}/>
-                    <Route exact path="/account" component={Account}/>
+                    <PrivateRoute exact path="/branch" component={Branch}/>
+                    <PrivateRoute exact path="/customer" component={Customer}/>
+                    <PrivateRoute exact path="/account" component={Account}/>
                     </Switch>
                 </Router>
             </Provider>
