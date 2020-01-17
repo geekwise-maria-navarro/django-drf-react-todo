@@ -1,6 +1,4 @@
-heroku: python.django.drf.node.react.postgres.fullstack.app
-
-# Heroku: Django-DRF-React_Bank_Todo
+# Heroku: django-drf-react-bank-project
 Bank App will apply CRUD functions between the User and Database. You will be able to make edits that can be directly reflected on the backend database.
 
 [Heroku Deployed Backend](https://maria-staging-backend.herokuapp.com/api/)<br>
