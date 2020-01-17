@@ -53,7 +53,7 @@ export default class CustomModal extends Component {
                 placeholder="address"
                 />
             </FormGroup>
-            <FormGroup>
+            {/* <FormGroup>
                 <Label for="product_options"> Product </Label>
                 <Input
                 type="text"
@@ -62,7 +62,7 @@ export default class CustomModal extends Component {
                 onChange={this.handleChange}
                 placeholder="Product Options"
                 />
-            </FormGroup>
+            </FormGroup> */}
             </Form>
         </ModalBody>
         <ModalFooter>
