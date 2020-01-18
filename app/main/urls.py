@@ -18,9 +18,12 @@ from django.urls import path, include
 from rest_framework import routers
 # from todo import views
 from todo import views as bank_views
+from account import views as accout_views
 
 
 router = routers.DefaultRouter()
+router.register(r'user', accout_views.UserViewset, 'user')
+router.register(r'group', accout_views.GroupViewset, 'group')
 router.register(r'branch', bank_views.BankView , 'branch')
 router.register(r'customer', bank_views.CustomerView, 'customer')
 router.register(r'account', bank_views.AccountView, 'account')
