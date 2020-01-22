@@ -28,8 +28,8 @@ class App extends Component {
                     <Header/>
                     <Switch>
                     <Route exact path="/" component={Home}/>
-                    <PrivateRoute exact path="/login" component={Login}/>
-                    <PrivateRoute exact path="/register" component={Register}/>
+                    <Route exact path="/login" component={Login}/>
+                    <Route exact path="/register" component={Register}/>
                     <PrivateRoute exact path="/branch" component={Branch}/>
                     <PrivateRoute exact path="/customer" component={Customer}/>
                     <PrivateRoute exact path="/account" component={Account}/>
