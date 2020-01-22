@@ -2,6 +2,23 @@ from rest_framework import serializers
 from django.contrib.auth.models import User, Group, Permission
 from django.contrib.auth import authenticate
 
+#Password serializer
+class PasswordSerializer(serializers.Serializer):
+    username = serializers.CharField()
+    password = serializers.CharField()
+    
+    def create(self, validated_data):
+        pass
+
+    def update(self, instance, validated_data):
+        pass
+    
+    def validate(self, data):
+        """check that username and new password are different"""
+        if data["username"] == data ["password"]:
+            raise serializers.ValidationError("Username and new password should be different")
+        return data
+
 class PermissionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Permission
