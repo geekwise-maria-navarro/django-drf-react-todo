@@ -1,9 +1,9 @@
 // frontend/src/App.js
 
 import React, { Component } from "react";
-import branch from "./components/branch";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import axios from "axios";
+
 import Header from "./components/layout/header";
 import Login from "./components/account/login";
 import Register from "./components/account/register";
