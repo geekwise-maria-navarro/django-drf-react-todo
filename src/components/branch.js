@@ -20,7 +20,7 @@ class Branch extends Component {
     }
     refreshList = () => {
     axios
-        .get("http://127.0.0.1:8000/api/branch/")
+        .get("https://maria-demo-backend.herokuapp.com/api/branch/")
         .then(res => this.setState({ branchList: res.data }))
         .catch(err => console.log(err));
     };
@@ -65,17 +65,17 @@ class Branch extends Component {
     this.toggle();
     if (item.id) {
         axios
-        .put(`http://127.0.0.1:8000/api/branch/${item.id}/`, item)
+        .put(`https://maria-demo-backend.herokuapp.com/api/branch/${item.id}/`, item)
         .then(res => this.refreshList());
         return;
     }
     axios
-        .post("http://127.0.0.1:8000/api/branch/", item)
+        .post("https://maria-demo-backend.herokuapp.com/api/branch/", item)
         .then(res => this.refreshList());
     };
     handleDelete = item => {
     axios
-        .delete(`http://127.0.0.1:8000/api/branch/${item.id}`)
+        .delete(`https://maria-demo-backend.herokuapp.com/api/branch/${item.id}`)
         .then(res => this.refreshList());
     };
     createItem = () => {

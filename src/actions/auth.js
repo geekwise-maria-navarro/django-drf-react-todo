@@ -30,7 +30,7 @@ export const loadUser = () => (dispatch, getState) => {
         config.headers['Authorization'] = `Token ${token}`;
     }
     axios
-      .get('http://127.0.0.1:8000/users/api/auth/user', config)
+      .get('https://maria-demo-backend.herokuapp.com/users/api/auth/user', config)
       .then(res => {
           dispatch({
             type: USER_LOADED,
@@ -55,7 +55,7 @@ export const login = (username, password) => dispatch => {
     // Request Body 
     const body = JSON.stringify({ username, password });
     axios
-      .post('http://127.0.0.1:8000/users/api/auth/login', body, config)
+      .post('https://maria-demo-backend.herokuapp.com/users/api/auth/login', body, config)
       .then(res => {
           dispatch({
             type: LOGIN_SUCCESS,
@@ -82,7 +82,7 @@ export const reset = (username, password) => dispatch => {
     // Request Body 
     const body = JSON.stringify({ username, password });
     axios
-      .put('http://127.0.0.1:8000/users/password', body, config)
+      .put('https://maria-demo-backend.herokuapp.com/users/password', body, config)
       .then(res => {
           dispatch({
             type: RESET_SUCCESS,
@@ -116,7 +116,7 @@ export const register = ({ username, email, password }) => dispatch => {
     // Request Body 
     const body = JSON.stringify({ username, email, password });
     axios
-      .post('http://127.0.0.1:8000/users/api/auth/register', body, config)
+      .post('https://maria-demo-backend.herokuapp.com/users/api/auth/register', body, config)
       .then(res => {
           dispatch({
             type: REGISTER_SUCCESS,
@@ -147,7 +147,7 @@ export const logout = () => (dispatch, getState) => {
         config.headers['Authorization'] = `Token ${token}`;
     }
     axios
-      .post('http://127.0.0.1:8000/users/api/auth/logout', null, config)
+      .post('https://maria-demo-backend.herokuapp.com/users/api/auth/logout', null, config)
       .then(res => {
           dispatch({
             type: LOGOUT_SUCCESS,

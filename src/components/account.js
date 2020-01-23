@@ -22,7 +22,7 @@ class Account extends Component {
     }
     refreshList = () => {
     axios
-        .get("http://127.0.0.1:8000/api/account/")
+        .get("https://maria-demo-backend.herokuapp.com/api/account/")
         .then(res => this.setState({ accountList: res.data }))
         .catch(err => console.log(err));
     };
@@ -68,17 +68,17 @@ class Account extends Component {
     this.toggle();
     if (item.id) {
         axios
-        .put(`http://127.0.0.1:8000/api/account/${item.id}/`, item)
+        .put(`https://maria-demo-backend.herokuapp.com/api/account/${item.id}/`, item)
         .then(res => this.refreshList());
         return;
     }
     axios
-        .post("http://127.0.0.1:8000/api/account/", item)
+        .post("https://maria-demo-backend.herokuapp.com/api/account/", item)
         .then(res => this.refreshList());
     };
     handleDelete = item => {
     axios
-        .delete(`http://127.0.0.1:8000/api/account/${item.id}`)
+        .delete(`https://maria-demo-backend.herokuapp.com/api/account/${item.id}`)
         .then(res => this.refreshList());
     };
     createItem = () => {
