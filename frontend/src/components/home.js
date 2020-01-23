@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
+
 // import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 
 class Home extends Component {
@@ -9,23 +11,28 @@ class Home extends Component {
         padding: '30px',
         color: 'white'
     }
+
+    tbdbox={
+        background: 'white',
+        width: '530px',
+        hight: '100px',
+        borderRadius: '10%'
+    }
     
     render() {
     return (
-        <div className="row-container narrow" style={this.divStyle}>
-        <div className="row center-align-columns">
-        <div className="column-container column-7 retain-width-on-mobile">
-        <div className="column accent-purple">
+        <div className="row-container" style={this.divStyle}>
+        <div className="col-md-12">
         <div className="dark-background">
-            <h1 className="headline-1">TBD</h1>
-            <h2>Still waiting...</h2>
+            <h1 className="headline-1 text-center mx-auto">TBD</h1>
+            <h2 className="text-center">Still waiting...</h2>
+            <div className="mx-auto" style={this.tbdbox}>
+                <img src={require('./tbd(2).png')} />
+            </div>
         </div>
         </div>
         </div>
-        </div>
-        </div>
-    )
-        
+    )  
     };
 }
 export default Home;

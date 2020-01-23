@@ -10,7 +10,8 @@ import Register from "./components/account/register";
 import Customer from "./components/customer";
 import Account from "./components/account";
 import Branch from "./components/branch";
-import Home from "./components/home"
+import Home from "./components/home";
+import Reset from "./components/account/reset";
 import PrivateRoute from "./components/common/PrivateRouter";
 import { Provider } from 'react-redux';
 import store from "./store";
@@ -30,6 +31,7 @@ class App extends Component {
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/login" component={Login}/>
                     <Route exact path="/register" component={Register}/>
+                    <Route exact path="/reset" component={Reset}/>
                     <PrivateRoute exact path="/branch" component={Branch}/>
                     <PrivateRoute exact path="/customer" component={Customer}/>
                     <PrivateRoute exact path="/account" component={Account}/>
