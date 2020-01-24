@@ -22,7 +22,7 @@ class PasswordSerializer(serializers.Serializer):
 class PermissionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Permission
-        fields = ('name',)
+        fields = ('name',) 
         # fields = '__all__'
 
 class GroupSerializer(serializers.ModelSerializer):
