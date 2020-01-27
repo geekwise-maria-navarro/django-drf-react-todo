@@ -3,6 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { register } from "../../actions/auth";
+import axios from "axios";
 
 
 export class Register extends Component {
@@ -10,12 +11,18 @@ export class Register extends Component {
         username: "", 
         email: "",
         password: "",
-        justRegister: false
+        justRegister: false,
+        justRegisterUser: false,
+        // groups: [1],
+        // groupList: [],
+        // groupName: ""
     };
+
     static propTypes = {
         register: PropTypes.func.isRequired,
         isAuthenticated: PropTypes.bool
     };
+    
     componentDidMount() {
         this.setState({justRegister: false});
     }
