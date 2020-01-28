@@ -81,11 +81,12 @@ export class Register extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const { username, email, password } = this.state;
+        const { username, email, password, groups } = this.state;
         const newUser = {
             username,
             password,
-            email
+            email,
+            groups
         };
         this.props.register(newUser);
         this.setState({justRegister: true});
