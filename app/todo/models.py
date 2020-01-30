@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -29,3 +30,11 @@ class Customer(models.Model):
 class Account(models.Model):
     account_options = models.CharField(max_length=250)
     account_owner = models.CharField(max_length=250)
+
+    holder = models.ForeignKey(User,
+    related_name='holders', on_delete=models.CASCADE,
+    null=True,
+    )
+
+    def __str__(self):
+        return f"{self.account_owner}: {self.holder}"
