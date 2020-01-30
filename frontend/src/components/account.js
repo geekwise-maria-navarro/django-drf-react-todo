@@ -37,36 +37,6 @@ class Account extends Component {
             this.setState({ groups: this.props.auth.user.groups[0].name });
         })
         .catch(err => console.log(err));
-
-    // export const loadUser = () => (dispatch, getState) => {
-    //     // User loading
-    //     dispatch({ type: USER_LOADING });
-    //     // Get token from state
-    //     const token = getState().auth.token;
-    //     // Headers
-    //     const config = {
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     }
-    //     // If token add to headers config
-    //     if(token) {
-    //         config.headers['Authorization'] = `Token ${token}`;
-    //     }
-    //     axios
-    //       .get('http://127.0.0.1:8000/users/api/auth/user', config)
-    //       .then(res => {
-    //           dispatch({
-    //             type: USER_LOADED,
-    //             payload: res.data
-    //           });
-    //       })
-    //       .catch(err => {
-    //           dispatch(returnErrors(err.response.data, err.response.status));
-    //           dispatch({
-    //               type: AUTH_ERROR
-    //           });
-    //       });
     };
   
     renderItems = () => {
